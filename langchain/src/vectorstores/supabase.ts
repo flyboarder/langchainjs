@@ -74,7 +74,7 @@ export class SupabaseVectorStore extends VectorStore {
       const res = await this.client.from(this.tableName).insert(chunk);
       if (res.error) {
         throw new Error(
-          `Error inserting: ${res.error.message} ${res.status} ${res.statusText}`
+          `Error inserting: ${res.error.message} ${res.error.details} ${res.status} ${res.statusText}`
         );
       }
     }
